@@ -50,9 +50,22 @@ const pinkPrice = .55
 */
 
 // CODE HERE
+let totalFujiAcres = 0;
+let totalGalaAcres = 0
+let totalPinkAcres = 0
+for (let i = 0; i < fujiAcres.length; i++){
+    totalFujiAcres += fujiAcres[i]
+}
+for (let i = 0; i < galaAcres.length; i++){
+    totalGalaAcres += galaAcres[i]
+}
+for (let i = 0; i < pinkAcres.length; i++){
+    totalPinkAcres += pinkAcres[i]
+}
 
-
-
+let totalAcres = 0
+totalAcres = totalFujiAcres + totalGalaAcres + totalPinkAcres
+console.log(`Total Acres picked throughout the week were: ${totalAcres} acres.`)
 
 
 // PROBLEM 2
@@ -68,10 +81,10 @@ const pinkPrice = .55
 */
 
 // CODE HERE
+let averageDailyAcres = Math.trunc(totalAcres / (fujiAcres.length+galaAcres.length+pinkAcres.length))
+//searched up how to shorten decimals on google to get math function to make log look better. :P 
 
-
-
-
+console.log(`The average daily acres of Apples picked were: ${averageDailyAcres} acres.`)
 
 // PROBLEM 3
 
@@ -107,8 +120,11 @@ let days = 0
 
 // CODE HERE
 
-
-
+while (acresLeft > 0) {
+    days++
+    acresLeft -= averageDailyAcres
+}
+console.log(`It took ${days} days to pick the rest of the apples.`)
 // PROBLEM 4
 
 /*
@@ -134,16 +150,32 @@ let days = 0
 */
 
 // CODE HERE
-
-// let fujiTons =
-// let galaTons =
-// let pinkTons =
-
+let fujiAcresCopy = fujiAcres
+let galaAcresCopy = galaAcres
+let pinkAcresCopy = pinkAcres
 
 
+fujiAcresCopy.forEach((element, index ) =>{
+    fujiAcresCopy[index] = element * 6.5
+})
 
+galaAcresCopy.forEach((element, index) =>{
+    galaAcresCopy[index] = element * 6.5
+})
 
+pinkAcresCopy.forEach((element, index) =>{
+    pinkAcresCopy[index] = element * 6.5
+})
 
+//used google to help me use arr.forEach statements still dont fully understand how it works but i have a vague idea
+
+let fujiTons = fujiAcresCopy
+let galaTons = galaAcresCopy
+let pinkTons = pinkAcresCopy
+
+console.log(`The daily tons of Fuji Apples picked were ${fujiTons} tons`)
+console.log(`The daily tons of Gala Apples picked were ${galaTons} tons`)
+console.log(`The daily tons of Pink Apples picked were ${pinkTons} tons`)
 // PROBLEM 5
 
 /*
@@ -162,11 +194,30 @@ let days = 0
 
 // CODE HERE 
 
-// let fujiPounds =
-// let galaPounds =
-// let pinkPounds =
 
+let fujiTonsCopy = fujiTons;
+let galaTonsCopy = galaTons;
+let pinkTonsCopy = pinkTons;
+//used arr.splice method to replace values in the copied arrays
+for (let i = 0; i < fujiTonsCopy.length; i++){
+    fujiTonsCopy.splice(i,1,fujiTonsCopy[i]*2000)
+}
 
+for (let i = 0; i < galaTonsCopy.length; i++){
+    galaTonsCopy.splice(i,1,galaTonsCopy[i]*2000)
+}
+
+for (let i = 0; i < pinkTonsCopy.length; i++){
+    pinkTonsCopy.splice(i,1,pinkTonsCopy[i]*2000)
+}
+//transfered the values from the copied arrays to the pounds arrays
+let fujiPounds = fujiTonsCopy
+let galaPounds = galaTonsCopy
+let pinkPounds = pinkTonsCopy
+
+console.log(`The pounds of Fuji Apples picked per day were ${fujiPounds} pounds`)
+console.log(`The pounds of Gala Apples picked per day were ${galaPounds} pounds`)
+console.log(`The pounds of Pink Apples picked per day were ${pinkPounds} pounds`)
 
 
 
@@ -188,14 +239,30 @@ let days = 0
 */
 
 // CODE HERE
+//made a copy of the pounds variables so nothing gets messed up
+let fujiPoundsCopy = fujiPounds
+let galaPoundsCopy = galaPounds
+let pinkPoundsCopy = pinkPounds
+//made the profit values integers so i dont get array values
+let fujiProfit = 0
+let galaProfit = 0
+let pinkProfit = 0
 
-// let fujiProfit =
-// let galaProfit =
-// let pinkProfit =
-
-
-
-
+for (let i = 0; i < fujiPoundsCopy.length; i++){
+    fujiPoundsCopy.splice(i,1,fujiPoundsCopy[i]*fujiPrice)
+    fujiProfit += fujiPoundsCopy[i]
+}
+for (let i = 0; i < galaPoundsCopy.length; i++){
+    galaPoundsCopy.splice(i,1,galaPoundsCopy[i]*galaPrice)
+    galaProfit += galaPoundsCopy[i]
+}
+for (i = 0; i < pinkPoundsCopy.length; i++){
+    pinkPoundsCopy.splice(i,1,pinkPoundsCopy[i]*pinkPrice)
+    pinkProfit += pinkPoundsCopy[i]
+}
+console.log(`The profit made from selling the Fuji Apples at $${fujiPrice} was $${fujiProfit}.`)
+console.log(`The profit made from selling the Gala Apples at $${galaPrice} was $${galaProfit}.`)
+console.log(`The profit made from selling the Pink Apples at $${pinkPrice} was $${pinkProfit}.`)
 
 
 // PROBLEM 7
@@ -209,3 +276,9 @@ let days = 0
 */
 
 // CODE HERE
+
+
+// took the individual profit values from the profit variables and added them all up to make the total profit
+let totalProfit = fujiProfit + galaProfit + pinkProfit
+
+console.log(`The total profit made from selling all the apples from the week was $${totalProfit}`)
