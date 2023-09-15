@@ -26,7 +26,7 @@
 */
 
 //CODE HERE
-
+let gitInitDefinition = "Initializes git repository in your folder. Only required to use once."
 //////////////////PROBLEM 4////////////////////
 /*
     Create a variable called 'gitCloneDefinition'.  
@@ -34,7 +34,7 @@
 */
 
 //CODE HERE
-
+let gitCloneDefinition = "Used to create a clone of a repository in a new directory."
 //////////////////PROBLEM 5////////////////////
 /*
     Create a variable called 'gitStatusDefinition'.  
@@ -42,7 +42,7 @@
 */
 
 //CODE HERE
-
+let gitStatusDefinition = "Checks the status of your working directory"
 //////////////////PROBLEM 6////////////////////
 /*
     Create a variable called 'gitAddDefinition'.  
@@ -53,7 +53,9 @@
 */
 
 //CODE HERE
+let gitAddDefinition = "Adds a change to your working direcctory"
 
+let gitAddCode = "git add ."
 //////////////////PROBLEM 7////////////////////
 /*
     Create a variable called 'gitCommitDefinition'.  
@@ -64,7 +66,9 @@
 */
 
 //CODE HERE
+let gitCommitDefinition = "Commits your changes to your working directory with a message"
 
+let gitCommitCode = `git commit -m ""`
 
 //////////////////PROBLEM 8////////////////////
 /*
@@ -73,3 +77,5 @@
 */
 
 //CODE HERE
+
+let gitPushDefinition = "Pushes your working directory to GitHub"
